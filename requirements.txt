@@ -1,0 +1,4 @@
+dbt-bigquery==1.2.0
+dbt-core==1.2.0
+dbt-extractor==0.4.1
+dbt-rpc==0.1.2

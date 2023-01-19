@@ -1,0 +1,6 @@
+name: dbt-tutorial
+dependencies:
+  - python
+  - pip
+  - pip:
+      - -r requirements.txt
