@@ -1,13 +1,15 @@
 config:
   use_colors: true
 
-default:
+jaffle_shop:
   target: "{{ env_var('ENVIRONMENT', 'dev') }}"
   outputs:
     dev:
-      type: bigquery
-      method: service-account
-      project: dsa-src
-      dataset: "{{ env_var('DBT_DATASET', 'dbt') }}"
+      type: postgres
+      host: localhost
+      user: "{{ env_var('POSTGRES_USER', 'dev') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'dev') }}"
+      port: 5432
+      dbname: postgres
+      schema: "{{ env_var('POSTGRES_SCHEMA', 'dev') }}"
       threads: 4
-      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"

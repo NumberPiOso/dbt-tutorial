@@ -3,26 +3,14 @@ services:
   db-dbt-tutorial:
     image: postgres
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - "POSTGRES_USER=$POSTGRES_USER"
+      - "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
     ports:
       - "5432:5432"
     volumes:
       - db-dbt-tutorial:/var/lib/postgresql/data
       - ./database-info:/database-info
       - ./init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
-      # [
-      #   "sleep",
-      #   "2",
-      #   "psql",
-      #   "-U",
-      #   "postgres",
-      #   "-d",
-      #   "postgres",
-      #   "-a",
-      #   "-f",
-      #   "init.sql"
-      # ]
 
 volumes:
   db-dbt-tutorial:
