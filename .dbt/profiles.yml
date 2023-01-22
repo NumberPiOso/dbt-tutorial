@@ -1,0 +1,13 @@
+config:
+  use_colors: true
+
+default:
+  target: "{{ env_var('ENVIRONMENT', 'dev') }}"
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: dsa-src
+      dataset: "{{ env_var('DBT_DATASET', 'dbt') }}"
+      threads: 4
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
